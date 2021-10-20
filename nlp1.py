@@ -1,3 +1,4 @@
+from textblob import Word
 from textblob.sentiments import NaiveBayesAnalyzer
 from textblob import TextBlob
 
@@ -40,3 +41,54 @@ Chinese = blob.translate(to='zh')
 print(Chinese)
 
 print(Chinese.translate())
+
+
+index = Word('index')
+
+print(index.pluralize())
+
+cacti = Word('cacti')
+print(cacti.singularize())
+
+
+# wordlist
+animals = TextBlob('dog cat fish bird').words
+print(animals.pluralize())
+
+
+#spellcheck and correction
+word = Word('theyr')
+
+print(word.spellcheck())
+
+print(word.correct())
+
+
+# Normalization
+Word1 = Word("studies")
+Word2 = Word("varieties")
+
+print(Word1.stem())
+print(Word2.stem())
+
+print(Word1.lemmatize())
+print(Word2.lemmatize())
+
+
+# Definitions, synonyms and Antonyms from WordNet
+happy = Word("happy")
+
+print(happy.definitions)
+
+print(happy.synsets)
+
+for s in happy.synsets:
+    for l in s.lemmas():
+        print(l.name())
+
+
+synonym = happy.synsets[1].lemmas()[0].name()
+print(synonym)
+
+antonym = happy.synsets[0].lemmas()[0].antonyms()[0].name()
+print(antonym)
