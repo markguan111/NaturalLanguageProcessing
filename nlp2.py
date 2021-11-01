@@ -7,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 
 
-# nltk.download("stopwords")
+nltk.download("stopwords")
 
 stops = stopwords.words("english")
 print(stops)
